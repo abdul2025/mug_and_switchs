@@ -13,6 +13,7 @@ class Users(AbstractUser):
     last_name = models.CharField(max_length=255, blank=True, null=True, validators=[_NAME_REGEX])
     is_blocked = models.BooleanField(default=False)
     email = models.EmailField(_('email address'), unique = True)
+    is_active = models.BooleanField(default=False)
     
     class Meta:
         ordering = ('phone_no', 'first_name', 'email', 'password')
