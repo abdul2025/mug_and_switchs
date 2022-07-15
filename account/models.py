@@ -24,3 +24,17 @@ class Users(AbstractUser):
     def save(self, *args, **kwargs):
         self.email = self.email.lower()
         return super().save(*args, **kwargs)
+
+        
+class BaseModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    modified_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+    hidden = models.BooleanField(default=False, null=True, blank=True)
+
+    class Meta:
+        abstract = True
+class LoginLog(BaseModel):
+    username = models.CharField(max_length=11)
+
+    def __str__(self):
+        return '{} Logged in at {}'.format(self.username, self.created_at)

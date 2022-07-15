@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'switchandmug.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'switchandmug',
+        'NAME': 'swit12',
         'USER': 'postgres',
         'PASSWORD': '123123',
         # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
@@ -126,6 +126,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
 
 # Internationalization
